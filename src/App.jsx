@@ -44,7 +44,7 @@ function App() {
           </button>
         </div>
         <div className="result-container">
-          <p><b>Definition: </b> <br /></p>
+          <p><b>Definition:</b></p>
           {result !== null && <p>{result}</p>}
         </div>
       </div>
