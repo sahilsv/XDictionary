@@ -13,7 +13,7 @@ function App() {
 
   const [dictionary, setDictionary] = useState(givenData);
   const [searchTerm, setSearchTerm] = useState("");
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState(null);
 
   const handleSearch = () => {
     const searchTermLower = searchTerm.toLowerCase();
@@ -30,24 +30,22 @@ function App() {
 
   return (
     <>
-      <header>Dictionary App</header>
-
-      <div>
-        <input
-          type="text"
-          placeholder="Search for a word..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button type="button" onClick={handleSearch}>
-          Search
-        </button>
-        <div>
-          <p>
-            {" "}
-            <b>Definition: </b> <br />{" "}
-          </p>
-          <p>{result}</p>
+      <div className="app">
+        <header>Dictionary App</header>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search for a word..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button type="button" onClick={handleSearch}>
+            Search
+          </button>
+        </div>
+        <div className="result-container">
+          <p><b>Definition: </b> <br /></p>
+          {result !== null && <p>{result}</p>}
         </div>
       </div>
     </>
