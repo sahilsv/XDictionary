@@ -21,17 +21,13 @@ function App() {
       (item) => item.word.toLowerCase() === searchTermLower
     );
 
-    if (findWord) {
-      setResult(findWord.meaning);
-    } else {
-      setResult("Word not found in the dictionary.");
-    }
+    setResult(findWord ? findWord.meaning : "Word not found in the dictionary.");
   };
 
   return (
     <>
       <div className="app">
-        <header>Dictionary App</header>
+        <h1>Dictionary App</h1>
         <div className="search-container">
           <input
             type="text"
@@ -39,7 +35,7 @@ function App() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button type="button" onClick={handleSearch}>
+          <button onClick={handleSearch}>
             Search
           </button>
         </div>
